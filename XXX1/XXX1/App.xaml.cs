@@ -12,7 +12,7 @@ namespace XXX1
 		public App ()
 		{
 			InitializeComponent();
-
+            //Main Page
 			MainPage = new NavigationPage(new XXX1.MainPage());
 		}
 
