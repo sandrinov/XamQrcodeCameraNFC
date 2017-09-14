@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XXX1"
+             x:Class="XXX1.MainPage">
+
+    <StackLayout x:Name="layout">
+        <Button x:Name="btn_Read_nfc" Text="Read NFC" Clicked="btn_Read_clicked" HorizontalOptions="FillAndExpand">
+            <!--<OnPlatform x:TypeArguments="IsEnabled">
+                <OnPlatform.iOS>
+                    false
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    true
+                </OnPlatform.Android>
+            </OnPlatform>-->
+        </Button>
+
+        <Button x:Name="btn_Read_qrcode" Text="Read QR CODE" Clicked="btn_Read_clicked" HorizontalOptions="FillAndExpand">
+            <!--<OnPlatform x:TypeArguments="IsEnabled">
+                <OnPlatform.iOS>
+                    true
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    false
+                </OnPlatform.Android>
+            </OnPlatform>-->
+        </Button>
+        <Button x:Name="btn_take_picture" Text="Take Picture" Clicked="btn_take_picture_clicked" HorizontalOptions="FillAndExpand">
+            <!--<OnPlatform x:TypeArguments="IsEnabled">
+                <OnPlatform.iOS>
+                    true
+                </OnPlatform.iOS>
+                <OnPlatform.Android>
+                    false
+                </OnPlatform.Android>
+            </OnPlatform>-->
+        </Button>
+    </StackLayout>
+
+
+    
+</ContentPage>
