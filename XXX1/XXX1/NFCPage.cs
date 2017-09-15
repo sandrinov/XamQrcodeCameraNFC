@@ -32,10 +32,11 @@ namespace XXX1
             {
                 RowDefinitions =
                 {
-                    new RowDefinition { Height = new GridLength(10,GridUnitType.Star)},
-                    new RowDefinition { Height = GridLength.Auto },
-                    new RowDefinition { Height = GridLength.Auto },
-                    new RowDefinition { Height =  new GridLength(5,GridUnitType.Star)}
+                    new RowDefinition { Height = GridLength.Star},
+                    new RowDefinition { Height = GridLength.Star },
+                    new RowDefinition { Height = GridLength.Star },
+                    new RowDefinition { Height = GridLength.Star },
+                    new RowDefinition { Height = GridLength.Star}
                 }
             };
 
@@ -90,7 +91,7 @@ namespace XXX1
             mainGrid.Children.Add(TechList, 0, 1);
             mainGrid.Children.Add(NDEFMessage, 0, 2);
             mainGrid.Children.Add(writeButton, 0, 3);
-            mainGrid.Children.Add(welcomePanel, 0, 1, 0, 4);
+            mainGrid.Children.Add(welcomePanel, 0, 4);
             Content = mainGrid;
         }
 
@@ -103,16 +104,6 @@ namespace XXX1
         void device_TagConnected(object sender, Poz1.NFCForms.Abstract.NfcFormsTag e)
         {
             IsConnected.IsToggled = true;
-        }
-
-        void device_TagDisconnected(object sender, System.EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        void device_TagConnected(object sender, System.EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         void HandleClicked(object sender, EventArgs e)
@@ -163,6 +154,13 @@ namespace XXX1
                     // Convert and extract Smart Poster info
                     var spRecord = new NdefLibrary.Ndef.NdefUriRecord(record);
                     collection.Add("Text: " + spRecord.Uri);
+                }
+
+                if (record.CheckSpecializedType(false) == typeof(NdefLibrary.Ndef.NdefTextRecord))
+                {
+                    // Convert and extract Smart Poster info
+                    var spRecord = new NdefLibrary.Ndef.NdefTextRecord(record);
+                    collection.Add("Text: " + spRecord.Text);
                 }
             }
             return collection;
